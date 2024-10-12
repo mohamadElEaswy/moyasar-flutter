@@ -80,7 +80,7 @@ class _ApplePayState extends State<ApplePay> {
         "provider": "apple_pay",
         "data": {
           "merchantIdentifier": "${widget.config.applePay?.merchantId}",
-          "displayName": "${widget.config.applePay?.label ?? 'EduStation'}",
+          "displayName": "${widget.config.applePay?.label}",
           "merchantCapabilities": ${jsonEncode(widget.config.applePay?.merchantCapabilities)},
           "supportedCountries": ${jsonEncode(widget.config.applePay?.supportedCountries)},
           "supportedNetworks": ${jsonEncode(widget.config.supportedNetworks)},
@@ -93,7 +93,7 @@ class _ApplePayState extends State<ApplePay> {
   String createCustomNativeConfig() {
     return jsonEncode({
       "merchantIdentifier": "${widget.config.applePay?.merchantId}",
-      "paymentLabel": "${widget.config.applePay?.label ?? 'EduStation'}",
+      "paymentLabel": "${widget.config.applePay?.label}",
       "merchantCapabilities": widget.config.applePay?.merchantCapabilities,
       "supportedCountries": widget.config.applePay?.supportedCountries,
       "supportedNetworks": widget.config.supportedNetworks,
@@ -113,7 +113,7 @@ class _ApplePayState extends State<ApplePay> {
                 PaymentConfiguration.fromJsonString(createConfigString()),
             paymentItems: [
               PaymentItem(
-                label: widget.config.applePay?.label ?? 'EduStation',
+                label: widget.config.applePay?.label!,
                 amount: (widget.config.amount / 100).toStringAsFixed(2),
               )
             ],
