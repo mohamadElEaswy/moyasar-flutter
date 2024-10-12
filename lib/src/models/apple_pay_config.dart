@@ -4,7 +4,7 @@ class ApplePayConfig {
   String merchantId;
 
   /// The store name to be displayed in the Apple Pay payment session.
-  String label;
+  String? label;
 
   /// An option to enable the manual auth and capture.
   bool manual;
@@ -19,7 +19,7 @@ class ApplePayConfig {
 
   ApplePayConfig(
       {required this.merchantId,
-      required this.label,
+      this.label= 'EduStation',
       required this.manual,
       this.merchantCapabilities = const ["3DS", "debit", "credit"],
       this.supportedCountries = const ["SA"]})
